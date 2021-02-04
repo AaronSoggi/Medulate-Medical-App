@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mobile_Interactions_Aaron_Soggi</string>
+    <string name="title_activity_nearby_hospitals_of_current_location">Map</string>
+    <string name="google_map_key">AIzaSyAmIg1efr1zxadLhLJvApOuvN6htZzOnRM</string>
+    <string name="title_activity_google_maps">Map</string>
+    <string name="google_map">AIzaSyCmPGQIMAu8f2tF3epPb4mr1C3t-CTuadI</string>
+    <string name="google_api">AIzaSyCmPGQIMAu8f2tF3epPb4mr1C3t-CTuadI</string>
+    <string name="google_ai">AIzaSyAXiGvZmIWgThN54-rtq07FZJg7KTwp-xo</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>

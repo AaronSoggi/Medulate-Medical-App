@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "548127492233",
+    "project_id": "medigine-4ff96",
+    "storage_bucket": "medigine-4ff96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548127492233:android:f1bce47e41cb8eb1b0de58",
+        "android_client_info": {
+          "package_name": "com.example.mobile_interactions_aaron_soggi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548127492233-qr7mt07b216aghbs35vjl58qg28dn3vp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmPGQIMAu8f2tF3epPb4mr1C3t-CTuadI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548127492233-qr7mt07b216aghbs35vjl58qg28dn3vp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
