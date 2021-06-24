@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mobile_background"
+    tools:context=".alarm_activity"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar_in_editNote"
+        android:background="#18384a"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+
+    <EditText
+        android:id="@+id/reminderText"
+        android:layout_width="299dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="37dp"
+        android:background="@drawable/editloginfield"
+        android:drawableStart="@drawable/ic_notification"
+        android:drawableLeft="@drawable/ic_notification"
+        android:drawablePadding="8dp"
+        android:hint="Enter message..."
+        android:textCursorDrawable="@color/white"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingLeft="8dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="16dp" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="298dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="37dp"
+        android:numbersSelectorColor="#18384a"
+        android:amPmTextColor="@color/white" />
+
+    <Button
+        android:id="@+id/btn_calendar"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="12dp"
+        android:text="Calendar"
+        android:textSize="17dp"
+        android:textAllCaps="false"
+        android:backgroundTint="#d27f25"/>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="05/02/2021"
+        android:paddingLeft="140dp"
+        android:paddingTop="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="21dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/setBtn"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:text ="Set"
+            android:drawableLeft="@drawable/ic_set"
+            android:textSize="17dp"
+            android:textAllCaps="false"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="5dp"
+            android:backgroundTint="#28878D"
+            />
+        <Button
+            android:id="@+id/cancelBtn"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:drawableLeft="@drawable/ic_cancel"
+            android:text ="Cancel"
+            android:textSize="17dp"
+            android:textAllCaps="false"
+            android:backgroundTint="#24A2B9"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -9,7 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,8 +33,6 @@ public class RegisterUser extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.signUpPassword);
 
         mAuth = FirebaseAuth.getInstance();
-
-
 
         CreateAccount = findViewById(R.id.signIn);
         CreateAccount.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +58,7 @@ public class RegisterUser extends AppCompatActivity {
         }
         if(email.isEmpty())
         {
-            editTextEmail.setError("Email is Required!");
+            editTextEmail.setError("An email is Required!");
             editTextEmail.requestFocus();
             return;
         }
@@ -72,7 +70,7 @@ public class RegisterUser extends AppCompatActivity {
         }
         if(password.isEmpty())
         {
-            editTextPassword.setError("Password is required!");
+            editTextPassword.setError("A password is required!");
             editTextPassword.requestFocus();
             return;
         }
@@ -85,7 +83,6 @@ public class RegisterUser extends AppCompatActivity {
 
 
         // register user in firebase
-        
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -99,17 +96,17 @@ public class RegisterUser extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()) {
-                                Toast.makeText(RegisterUser.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterUser.this, "Account has been registered successfully.", Toast.LENGTH_LONG).show();
                                 startActivity(new Intent(RegisterUser.this,MainActivity.class));
 
                             }else{
-                                Toast.makeText(RegisterUser.this, "An error has occurred, please try again", Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegisterUser.this, "An error has occurred, please try again.", Toast.LENGTH_LONG).show();
                             }
 
                         }
                     });
                 }else {
-                    Toast.makeText(RegisterUser.this, "Error, this email address is already been registered with", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterUser.this, "Error, this email address is already been registered with.", Toast.LENGTH_SHORT).show();
 
                 }
             }

@@ -8,19 +8,18 @@
         android:label="MediGine"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobile_Interactions_Aaron_Soggi">
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:theme="@style/Theme.Mobile_Interactions_Aaron_Soggi.NoActionBar" />
-        <activity android:name=".MainActivity2" />
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
+        <activity android:name=".detailsOfNote">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        </activity>
+        <activity android:name=".editNoteActivity">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        </activity>
+        <activity android:name=".CreateNoteActivity" >
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+        </activity>
+        <activity android:name=".notesActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".alarm_activity" />
         <activity android:name=".StartUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +36,14 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <activity android:name=".ResetPassword" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
         <activity
             android:name=".MainMenu"
             android:label="Home" />
@@ -46,9 +53,11 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCmPGQIMAu8f2tF3epPb4mr1C3t-CTuadI" />
-    </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+        <receiver android:name=".AlarmReceiver" />
+    </application>
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

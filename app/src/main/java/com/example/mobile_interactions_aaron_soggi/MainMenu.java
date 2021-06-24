@@ -7,12 +7,11 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +35,13 @@ public class MainMenu extends AppCompatActivity implements  View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        setTitle("MediGine");
+        setTitle("Home");
 
-        Button button1 = findViewById(R.id.localHospitals);
+        Button button1 = findViewById(R.id.pillReminder);
         button1.setOnClickListener(this);
+
+        Button button2 = findViewById(R.id.journal);
+        button2.setOnClickListener(this);
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -60,13 +62,13 @@ public class MainMenu extends AppCompatActivity implements  View.OnClickListener
                 if(userProfile != null)
                 {
                     String fullName = userProfile.fullName;
-                    greetingTextView.setText("Welcome, " + fullName);
+                    greetingTextView.setText("Hello, " + fullName);
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainMenu.this, "An error occurred!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainMenu.this, "An error has occurred!", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -77,7 +79,6 @@ public class MainMenu extends AppCompatActivity implements  View.OnClickListener
         getMenuInflater().inflate(R.menu.toolbar_menu,menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
@@ -92,6 +93,18 @@ public class MainMenu extends AppCompatActivity implements  View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(MainMenu.this,MapsActivity.class));
+
+        switch (view.getId())
+        {
+            case R.id.pillReminder:
+                startActivity(new Intent(MainMenu.this,alarm_activity.class));
+
+                break;
+            case R.id.journal:
+                startActivity(new Intent(MainMenu.this,notesActivity.class));
+
+        }
+
+
     }
 }

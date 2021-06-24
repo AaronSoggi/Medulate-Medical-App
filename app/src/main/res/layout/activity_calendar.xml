@@ -4,17 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartUp"
-    android:background="@drawable/mobile_background">
+    android:background="@drawable/mobile_background"
+    tools:context=".CalendarActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="132dp"
-        android:layout_height="125dp"
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:dateTextAppearance="@style/CalenderViewDateCustomText"
+        android:theme="@style/CalenderViewCustom"
+        android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/app_logo_final" />
+        app:layout_constraintVertical_bias="0.106" />
 </androidx.constraintlayout.widget.ConstraintLayout>

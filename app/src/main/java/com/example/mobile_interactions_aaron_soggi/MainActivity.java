@@ -2,13 +2,11 @@ package com.example.mobile_interactions_aaron_soggi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
-import android.view.Menu;
-import android.view.MenuInflater;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,17 +24,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button createAccount;
 
-    private TextView register, forgotPassword;
+    private TextView forgotPassword;
     private EditText editTextEmail, editTextPassword;
     private Button signIn;
 
     private FirebaseAuth mAuth;
+
+    ProgressBar iProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        iProgressBar = findViewById(R.id.progressBar);
         createAccount = findViewById(R.id.createAccount);
         createAccount.setOnClickListener(this);
 
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(email.isEmpty())
         {
-            editTextEmail.setError("Email is required!");
+            editTextEmail.setError("An Email is required!");
             editTextEmail.requestFocus();
             return;
         }
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(password.isEmpty())
         {
-            editTextPassword.setError("Password is required!");
+            editTextPassword.setError("Please enter a password!");
             editTextPassword.requestFocus();
             return;
         }
@@ -99,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
+
+        iProgressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -109,16 +112,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     if(user.isEmailVerified())
                     {
-                        startActivity(new Intent(MainActivity.this,MainMenu.class));
+                        startActivity(new Intent(MainActivity.this, MainMenu.class));
+
 
                     } else {
+                        iProgressBar.setVisibility(View.INVISIBLE);
                         user.sendEmailVerification();
-                        Toast.makeText(MainActivity.this, "Check your email to verify your account", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Check your email to verify your account.", Toast.LENGTH_LONG).show();
 
                     }
 
                 }else {
-                    Toast.makeText(MainActivity.this, "Failed to Login, Please check your login credentials", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Failed to Login, Please check your login credentials.", Toast.LENGTH_LONG).show();
+                    iProgressBar.setVisibility(View.INVISIBLE);
                 }
             }
         });
